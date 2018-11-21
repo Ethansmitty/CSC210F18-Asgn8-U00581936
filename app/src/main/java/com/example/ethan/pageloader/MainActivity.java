@@ -11,7 +11,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,7 +19,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     private Spinner httpSpinner;
     private EditText urlInputText;
-    private Button getButton;
     private TextView sourceText;
 
     @Override
@@ -29,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         setContentView(R.layout.activity_main);
 
         urlInputText = findViewById(R.id.urlInputText);
-        getButton = findViewById(R.id.getButton);
         sourceText = findViewById(R.id.sourceText);
         httpSpinner = findViewById(R.id.httpSpinner);
 
@@ -40,7 +37,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public void loadURL(View view) {
         // Get the search string from the input field.
-        String queryString = urlInputText.getText().toString();
+        String queryString = (httpSpinner.toString() + urlInputText.getText().toString());
+
+
 
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
