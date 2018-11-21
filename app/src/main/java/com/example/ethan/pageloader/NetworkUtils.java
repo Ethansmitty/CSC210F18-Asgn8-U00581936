@@ -11,7 +11,7 @@ import java.net.URL;
 
 public class NetworkUtils {
 
-    private static String downloadUrl(String myurl) throws IOException {
+    public static String downloadURL(String myurl) throws IOException {
         InputStream inputStream = null;
         HttpURLConnection conn = null;
 

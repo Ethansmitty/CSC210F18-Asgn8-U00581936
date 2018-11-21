@@ -5,4 +5,9 @@
     <string name="get_source_button">Get page source</string>
     <string name="no_input">Please enter a URL</string>
     <string name="no_network">Please check your internet connection.</string>
+    <string-array name="http_array">
+        <item>http://</item>
+        <item>https://</item>
+    </string-array>
+
 </resources>

@@ -9,6 +9,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         sourceText = findViewById(R.id.sourceText);
         httpSpinner = findViewById(R.id.httpSpinner);
 
+
         if(getSupportLoaderManager().getLoader(0)!=null) {
             getSupportLoaderManager().initLoader(0,null,this);
         }
@@ -37,9 +39,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     public void loadURL(View view) {
         // Get the search string from the input field.
-        String queryString = (httpSpinner.toString() + urlInputText.getText().toString());
-
-
+        String queryString = (httpSpinner.getSelectedItem().toString() + urlInputText.getText().toString());
+        Log.d("building url", queryString);
 
         InputMethodManager inputManager = (InputMethodManager)
                 getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         }
 
         if (networkInfo != null && networkInfo.isConnected() && queryString.length() != 0) {
+            Log.d("conn", "connected");
             Bundle queryBundle = new Bundle();
             queryBundle.putString("queryString", queryString);
             getSupportLoaderManager().restartLoader(0, queryBundle, this);
@@ -88,5 +90,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     @Override
     public void onLoaderReset(Loader<String> loader) {
 
+    }
+
+    public void resetResult(View view) {
+        sourceText.setText("");
     }
 }
