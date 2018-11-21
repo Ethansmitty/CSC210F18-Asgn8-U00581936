@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PageLoader</string>
+    <string name="enter_url">Enter URL:</string>
+    <string name="url_hint">www.example.com</string>
+    <string name="get_source_button">Get page source</string>
+    <string name="no_input">Please enter a URL</string>
+    <string name="no_network">Please check your internet connection.</string>
+</resources>
